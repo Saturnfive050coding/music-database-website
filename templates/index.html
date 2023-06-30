@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Music Database Web Client</title>
+    </head>
+    <body>
+        <div>Input an artist and click the button to get the top 10 tracks from an artist on Spotify.</div>
+        <label>Artist Name:</label>
+        <input type="text" id="artist">
+        <button onclick="getTracks()">Get Tracks</button>
+        <div id="result-container"></div>
+        <script src="{{url_for('static', filename='js/tracks.js')}}"></script>
+    </body>
+</html>
