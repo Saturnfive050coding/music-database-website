@@ -47,7 +47,7 @@ def artist_10(name):
     if len(items) > 0:
         artist = items[0]
         tracks = sp.artist_top_tracks(artist['uri'])
-        output += f"{name} Top 10 Most Popular Tracks:<br><br>"
+        output += f"{name} Top 10 Most Popular Tracks:"
         for track in tracks['tracks'][:10]:
             output += f"<a href={track['external_urls']['spotify']}>{track['name']}</a><br>"
         return output
@@ -59,12 +59,12 @@ def artist_10_list(name):
     items = results['artists']['items']
     id = playlist_count() + 1
     print(id)
-    output = {'id': id, 'name': f"{name} Top 10 Most Popular Tracks", 'tracks': {}}
+    output = {'id': id, 'name': f"{name} Top 10 Most Popular Tracks<br><br>", 'tracks': []}
     if len(items) > 0:
         artist = items[0]
         tracks = sp.artist_top_tracks(artist['uri'])
         for track in tracks['tracks'][:10]:
-            output['tracks'].update({track['name']: track['external_urls']['spotify']})
+            output['tracks'].append(f"<a href={track['external_urls']['spotify']}>{track['name']}</a><br>")
         return output
     else:
         return "Artist not found."

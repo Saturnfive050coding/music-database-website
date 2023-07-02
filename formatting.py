@@ -7,6 +7,6 @@ def format_playlist(pl):
     except:
         return 'Not a valid playlist.'
     tracks = json.loads(pl[0][2])
-    for keys, value in tracks.items():
-        response += f'\n{keys} - {value}'
+    for value in tracks:
+        response += value
     return response

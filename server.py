@@ -3,6 +3,7 @@ import flask
 from flask_cors import CORS
 
 import spotify
+import database
 
 app = Flask(__name__)
 CORS(app)
@@ -24,6 +25,13 @@ def artist10():
     print(artist)
     artist_tracks = spotify.artist_10(artist)
     return flask.jsonify(artist_tracks)
+
+@app.route("/playlist", methods=['POST'])
+def get_playlist():
+    print("get_playlist endpoint reached")
+    playlistId = request.form["id"]
+    playlist = database.retrieve_playlist(playlistId)
+    return flask.jsonify(playlist)
 
 
 if __name__ == "__main__":
