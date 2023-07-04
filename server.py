@@ -4,6 +4,7 @@ from flask_cors import CORS
 
 import spotify
 import database
+import formatting
 
 app = Flask(__name__)
 CORS(app)
@@ -31,7 +32,15 @@ def get_playlist():
     print("get_playlist endpoint reached")
     playlistId = request.form["id"]
     playlist = database.retrieve_playlist(playlistId)
+    playlist = formatting.format_playlist(playlist)
     return flask.jsonify(playlist)
+
+@app.route("/delete", methods=["POST"])
+def delete_playlist():
+    print("delete_playlist endpoint reached")
+    playlistId = request.form["id"]
+    result = database.delete_playlist(playlistId)
+    return flask.jsonify(result)
 
 
 if __name__ == "__main__":

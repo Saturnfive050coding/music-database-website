@@ -8,11 +8,19 @@
         <label>Artist Name:</label>
         <input type="text" id="artist">
         <button onclick="getTracks()">Get Tracks</button>
+
         <div>Input a playlist ID to get a playlist from the database</div>
         <label>Playlist ID:</label>
-        <input type="text" id="playlist-id">
+        <input type="text" id="get-playlist">
         <button onclick="getPlaylist()">Get Playlist</button>
+
+        <div>Delete a playlist from the database by inputting the ID</div>
+        <label>Playlist ID:</label>
+        <input type="text" id="delete-playlist">
+        <button onclick="deletePlaylist()">Delete Playlist</button>
+
         <div id="result-container"></div>
+        
         <script src="{{url_for('static', filename='js/tracks.js')}}"></script>
         <script src="{{url_for('static', filename='js/playlist.js')}}"></script>
     </body>
