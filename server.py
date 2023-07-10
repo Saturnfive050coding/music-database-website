@@ -24,8 +24,9 @@ def artist10():
     print("artist10 endpoint reached")
     artist = request.form["name"]
     print(artist)
-    artist_tracks = spotify.artist_10(artist)
-    return flask.jsonify(artist_tracks)
+    artist_tracks = spotify.artist_10_list(artist)
+    database.insert_playlist(artist_tracks['id'], artist_tracks['name'], artist_tracks['tracks'])
+    return flask.jsonify(f"Added top 10 tracks from artist {artist} to the database")
 
 @app.route("/playlist", methods=['POST'])
 def get_playlist():
@@ -41,6 +42,12 @@ def delete_playlist():
     playlistId = request.form["id"]
     result = database.delete_playlist(playlistId)
     return flask.jsonify(result)
+
+@app.route("/lists")
+def search_playlists():
+    print("search playlists endpoint reached")
+    lists = database.read_table()
+    return flask.jsonify(lists)
 
 
 if __name__ == "__main__":

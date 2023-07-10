@@ -11,9 +11,9 @@ getXmlHttpRequestObject = function () {
 function dataCallback() {
     if (xhr.readyState == 4 && xhr.status == 200) {
         console.log("User data received!");
+        rText = JSON.parse(xhr.responseText)
         dataDiv = document.getElementById('result-container');
         // Set current data text
-        rText = JSON.parse(xhr.responseText)
         dataDiv.innerHTML = rText;
     }
 }

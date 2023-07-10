@@ -46,4 +46,19 @@ def delete_playlist(id):
         return f"Deleted playlist with ID {id}"
     except sqlite3.Error as error:
         return "Failed to delete playlist" + error
+
+def read_table():
+    try:
+        conn = sqlite3.connect('bot_database.db')
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM Playlists")
+        playlists = cur.fetchall()
+        result = f"Total Playlists: {len(playlists)}<br><br>"
+        for row in playlists:
+            result += f"ID: {row[0]} - Name: {row[1]}<br>"
+        cur.close()
+        conn.close()
+        return result
+    except sqlite3.Error as error:
+        return "Failed to retrieve playlists" + error
     

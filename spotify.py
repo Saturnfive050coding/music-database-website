@@ -47,7 +47,7 @@ def artist_10(name):
     if len(items) > 0:
         artist = items[0]
         tracks = sp.artist_top_tracks(artist['uri'])
-        output += f"{name} Top 10 Most Popular Tracks:"
+        output += f"{name} Top 10 Most Popular Tracks:<br>"
         for track in tracks['tracks'][:10]:
             output += f"<a href={track['external_urls']['spotify']}>{track['name']}</a><br>"
         return output

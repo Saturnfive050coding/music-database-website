@@ -19,7 +19,11 @@
         <input type="text" id="delete-playlist">
         <button onclick="deletePlaylist()">Delete Playlist</button>
 
+        <button onclick="searchAll()">Search all playlist IDs</button>
+
         <div id="result-container"></div>
+
+        <div id="total-playlists"></div>
         
         <script src="{{url_for('static', filename='js/tracks.js')}}"></script>
         <script src="{{url_for('static', filename='js/playlist.js')}}"></script>
