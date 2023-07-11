@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightgreen;
+    text-align-last: center;
+    background-color: black;
+}
+
+button {
+    background-color: lightgreen;
+    color: black;
+    border: lightgreen;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.results {
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    box-sizing: border-box;
+    border: 5px lightgreen;
+}

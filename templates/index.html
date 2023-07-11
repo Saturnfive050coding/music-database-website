@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Music Database Web Client</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     </head>
     <body>
         <div>Input an artist and click the button to get the top 10 tracks from an artist on Spotify.</div>
@@ -19,11 +20,15 @@
         <input type="text" id="delete-playlist">
         <button onclick="deletePlaylist()">Delete Playlist</button>
 
+        <br>
         <button onclick="searchAll()">Search all playlist IDs</button>
+        <br>
 
-        <div id="result-container"></div>
-
-        <div id="total-playlists"></div>
+        <br>
+        <div class="results" id="result-container"></div>
+        <br>
+        <br>
+        <div id="total-playlists" class="playlists"></div>
         
         <script src="{{url_for('static', filename='js/tracks.js')}}"></script>
         <script src="{{url_for('static', filename='js/playlist.js')}}"></script>
